@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 
 export default class Movie extends Component {
 
-  componentDidMount() {
-    console.log(this.props);
-  };
-
   render() {
+    console.log('Movie is rendering ' + Object.getOwnPropertyNames( this.props.movie ) );
+    var movie = this.props.movie;
     return (
       <div>
-        <h1>test</h1>
-        <p>Score here</p>
+        <h1>{movie.Title}</h1>
+        <p>{movie.Year}</p>
+        <p>{movie.Released}</p>
       </div>
     )
   };
+
 };

@@ -5,19 +5,11 @@ import style from './App.css';
 
 export default class App extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      title: ''
-    }
-  }
-
   render() {
 
     return (
       <div>
         <SearchForm />
-        <Movie title={this.state.title} />
       </div>
     );
   };

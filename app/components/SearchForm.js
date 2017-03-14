@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import update from 'immutability-helper';
 import SearchTextInput from './SearchTextInput';
 import SearchFormSubmitButton from './SearchFormSubmitButton';
 import Movie from './Movie';
@@ -19,8 +20,12 @@ export default class SearchForm extends Component {
   };
 
   renderMovieInfo(data) {
+    var movie = update(this.state.current_movie, {
+      current_movie: {$set: data}
+    });
+
     this.setState({
-      current_movie: data
+      current_movie: movie.current_movie
     });
   };
 
@@ -36,6 +41,7 @@ export default class SearchForm extends Component {
     }).then(function(response) {
       return response.json();
     }).then( (data) => {
+      console.log('We got response back');
       this.renderMovieInfo(data);
     });
   };
