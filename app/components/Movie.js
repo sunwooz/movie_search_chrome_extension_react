@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 
 export default class Movie extends Component {
+
+  componentDidMount() {
+    console.log(this.props);
+  };
+
   render() {
     return (
       <div>
-        <h1>{this.props.title}</h1>
+        <h1>test</h1>
         <p>Score here</p>
       </div>
     )
