@@ -5,6 +5,8 @@ import SearchFormSubmitButton from './SearchFormSubmitButton';
 import Movie from './Movie';
 import style from './styles/SearchForm.css';
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 export default class SearchForm extends Component {
 
   constructor(props, context) {
@@ -50,12 +52,17 @@ export default class SearchForm extends Component {
 
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit} >
-          <SearchTextInput onUserInput={this.handleUserInput} />
-          <SearchFormSubmitButton />
-        </form>
+        <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} >
 
-        <Movie movie={this.state.current_movie} />
+          <form onSubmit={this.handleFormSubmit} >
+            <SearchTextInput onUserInput={this.handleUserInput} />
+            <SearchFormSubmitButton />
+          </form>
+
+          <Movie movie={this.state.current_movie} />
+
+        </ReactCSSTransitionGroup>
+        
       </div>
     );
   };

@@ -1,3 +1,11 @@
 #search_form {
 	background-color: green;
 }
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
