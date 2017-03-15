@@ -12,8 +12,7 @@ export default class SearchForm extends Component {
   constructor(props, context) {
     super();
     this.state = {
-      search_text: '',
-      current_movie: {}
+      search_text: ''
     };
   };
 
@@ -21,14 +20,8 @@ export default class SearchForm extends Component {
     this.setState(obj);
   };
 
-  renderMovieInfo(data) {
-    var movie = update(this.state.current_movie, {
-      current_movie: {$set: data}
-    });
-
-    this.setState({
-      current_movie: movie.current_movie
-    });
+  addMovie(data) {
+    console.log(this.props.handleMovieChange(data));
   };
 
   handleFormSubmit = (e) => {
@@ -43,8 +36,8 @@ export default class SearchForm extends Component {
     }).then(function(response) {
       return response.json();
     }).then( (data) => {
-      console.log('We got response back');
-      this.renderMovieInfo(data);
+      // console.log('We got response back');
+      this.addMovie(data);
     });
   };
 
@@ -52,17 +45,10 @@ export default class SearchForm extends Component {
 
     return (
       <div>
-        <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} >
-
-          <form onSubmit={this.handleFormSubmit} >
-            <SearchTextInput onUserInput={this.handleUserInput} />
-            <SearchFormSubmitButton />
-          </form>
-
-          <Movie movie={this.state.current_movie} />
-
-        </ReactCSSTransitionGroup>
-        
+        <form onSubmit={this.handleFormSubmit} key={1}>
+          <SearchTextInput onUserInput={this.handleUserInput} />
+          <SearchFormSubmitButton />
+        </form>
       </div>
     );
   };
