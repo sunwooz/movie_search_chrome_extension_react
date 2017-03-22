@@ -22,10 +22,7 @@ export default class SearchForm extends Component {
 
   addMovie(data) {
     this.props.handleMovieChange(data)
-    // console.log(this.props.handleMovieChange(data));
     console.log('Movie Added');
-    // console.log(data);
-    // console.log(this.props);
   };
 
   handleFormSubmit = (e) => {
@@ -40,23 +37,15 @@ export default class SearchForm extends Component {
     }).then(function(response) {
       return response.json();
     }).then( (data) => {
-      // console.log('We got response back');
       this.addMovie(data);
     });
-
-    // fetch(combined_url, {
-    //   method: 'GET'
-    // }).then( (data) => {
-    //   // console.log('We got response back');
-    //   this.addMovie(data);
-    // });
   };
 
   render() {
 
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit} key={1}>
+        <form onSubmit={this.handleFormSubmit} key={1} autocomplete='false'>
           <SearchTextInput onUserInput={this.handleUserInput} />
           <SearchFormSubmitButton />
         </form>

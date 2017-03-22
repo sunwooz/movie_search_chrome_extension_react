@@ -16,7 +16,6 @@ export default class MovieContainer extends Component {
   };
 
   renderMovie = (data) => {
-    // console.log(data.json());
     var movie = update(this.state.current_movie, {
       current_movie: {$set: data}
     });

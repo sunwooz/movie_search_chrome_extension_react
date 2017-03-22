@@ -9,6 +9,7 @@ export default class Movie extends Component {
     // console.log(this._reactInternalInstance._currentElement.key);
     return (
       <div>
+        <img src={movie.Poster} />
         <h1>{movie.Title}</h1>
         <p>{movie.Year}</p>
         <p>{movie.Released}</p>
@@ -21,7 +22,6 @@ export default class Movie extends Component {
         <p>{movie.Language}</p>
         <p>{movie.Country}</p>
         <p>{movie.Awards}</p>
-        <img src={movie.Poster} />
       </div>
     )
   };
