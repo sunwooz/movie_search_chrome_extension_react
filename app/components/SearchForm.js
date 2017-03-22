@@ -45,7 +45,7 @@ export default class SearchForm extends Component {
 
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit} key={1} autocomplete='false'>
+        <form onSubmit={this.handleFormSubmit} key={1}>
           <SearchTextInput onUserInput={this.handleUserInput} />
           <SearchFormSubmitButton />
         </form>
