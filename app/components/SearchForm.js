@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import update from 'immutability-helper';
+
 import SearchTextInput from './SearchTextInput';
 import SearchFormSubmitButton from './SearchFormSubmitButton';
 import Movie from './Movie';
@@ -21,7 +21,11 @@ export default class SearchForm extends Component {
   };
 
   addMovie(data) {
-    console.log(this.props.handleMovieChange(data));
+    this.props.handleMovieChange(data)
+    // console.log(this.props.handleMovieChange(data));
+    console.log('Movie Added');
+    // console.log(data);
+    // console.log(this.props);
   };
 
   handleFormSubmit = (e) => {
@@ -39,6 +43,13 @@ export default class SearchForm extends Component {
       // console.log('We got response back');
       this.addMovie(data);
     });
+
+    // fetch(combined_url, {
+    //   method: 'GET'
+    // }).then( (data) => {
+    //   // console.log('We got response back');
+    //   this.addMovie(data);
+    // });
   };
 
   render() {

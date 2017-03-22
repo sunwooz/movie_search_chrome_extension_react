@@ -4,6 +4,7 @@ import Movie from '../components/Movie';
 import SearchForm from '../components/SearchForm';
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import update from 'immutability-helper';
 
 export default class MovieContainer extends Component {
 
@@ -15,6 +16,7 @@ export default class MovieContainer extends Component {
   };
 
   renderMovie = (data) => {
+    // console.log(data.json());
     var movie = update(this.state.current_movie, {
       current_movie: {$set: data}
     });
@@ -28,12 +30,12 @@ export default class MovieContainer extends Component {
 
     return (
       <div>
-        <SearchForm />
+        <SearchForm handleMovieChange={this.renderMovie} />
         <ReactCSSTransitionGroup 
           transitionName="example"
           transitionEnterTimeout={300}
           transitionLeaveTimeout={300}>
-          <Movie movie={this.state.current_movie} key={Math.floor(Math.random() * 100)} handleMovieChange={this.renderMovie} />
+          <Movie movie={this.state.current_movie} key={Math.floor(Math.random() * 100)} />
         </ReactCSSTransitionGroup>
       </div>
     );
